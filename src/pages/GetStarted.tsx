@@ -38,7 +38,7 @@ const GetStarted = () => {
         "Project timeline & estimates",
         "No obligation discussion",
       ],
-      href: "https://calendly.com/pratik-consultation", // Replace with actual booking link
+      href: "https://calendly.com/pratikvaishnav2013", // Replace with actual booking link
       primary: true,
     },
     {
@@ -570,7 +570,7 @@ const GetStarted = () => {
                 className="text-lg px-8 py-4"
               >
                 <a
-                  href="https://calendly.com/pratik-consultation"
+                  href="https://calendly.com/pratikvaishnav2013"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-2"

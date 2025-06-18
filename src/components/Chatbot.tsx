@@ -43,27 +43,24 @@ const Chatbot = () => {
     if (isOpen && messages.length === 0) {
       const welcomeMessage: Message = {
         id: "welcome",
-        text: "Hi! I'm Pratik's AI assistant. I can help you learn about his full-stack development experience, technical skills, and background. What would you like to know?",
+        text: "Hello! I'm here to help you discover how our enterprise solutions can transform your business. I can assist with service information, project timelines, pricing, and scheduling consultations. How can I help you today?",
         sender: "bot",
         timestamp: new Date(),
         actions: [
           {
-            label: "View Experience",
-            action: () => (window.location.href = "/experience"),
+            label: "View Services",
+            action: () => (window.location.href = "/services"),
             icon: <ExternalLink className="w-4 h-4" />,
           },
           {
-            label: "Download Resume",
-            action: () =>
-              window.open(
-                "https://pratik-vaishnav.github.io/Pratik_Vaishnav_Resume.pdf",
-                "_blank",
-              ),
-            icon: <Download className="w-4 h-4" />,
+            label: "See Client Results",
+            action: () => (window.location.href = "/case-studies"),
+            icon: <ExternalLink className="w-4 h-4" />,
           },
           {
-            label: "Contact Info",
-            action: () => handleUserMessage("How can I contact Pratik?"),
+            label: "Schedule Consultation",
+            action: () => (window.location.href = "/get-started"),
+            icon: <ExternalLink className="w-4 h-4" />,
           },
         ],
       };
@@ -86,76 +83,86 @@ const Chatbot = () => {
   const generateResponse = (userMessage: string): Message => {
     const message = userMessage.toLowerCase();
 
-    // Experience related
+    // Services & capabilities related
     if (
-      message.includes("experience") ||
-      message.includes("work") ||
-      message.includes("job")
+      message.includes("service") ||
+      message.includes("solution") ||
+      message.includes("capability") ||
+      message.includes("what do you do")
     ) {
       return {
         id: Date.now().toString(),
-        text: "Pratik has 8+ years of full-stack development experience! He's currently a Lead Software Engineer at Bluevine Technologies, where he leads the GST product vertical. He works with Java/Spring Boot backends, React/Angular frontends, and AWS cloud infrastructure.",
+        text: "We provide enterprise-grade solutions including Backend Development, Financial System Integration, Cloud Infrastructure, and Compliance Platforms. Our services have processed $3B+ in transactions with 99.9% uptime for 100+ clients globally.",
         sender: "bot",
         timestamp: new Date(),
         actions: [
           {
-            label: "View Full Experience",
-            action: () => (window.location.href = "/experience"),
+            label: "View All Services",
+            action: () => (window.location.href = "/services"),
             icon: <ExternalLink className="w-4 h-4" />,
           },
         ],
       };
     }
 
-    // Skills related
+    // Pricing & timeline related
     if (
-      message.includes("skill") ||
-      message.includes("technology") ||
-      message.includes("tech") ||
-      message.includes("java") ||
-      message.includes("aws")
+      message.includes("price") ||
+      message.includes("cost") ||
+      message.includes("timeline") ||
+      message.includes("how long") ||
+      message.includes("investment")
     ) {
       return {
         id: Date.now().toString(),
-        text: "Pratik is a full-stack developer specializing in Java/Spring Boot for backend, React/Angular for frontend, AWS cloud services, Kubernetes, Kafka, and modern web development. He has expertise in both MySQL/PostgreSQL databases and responsive UI design.",
+        text: "Our enterprise solutions start from $4,000-$40,000 depending on complexity. Typical projects take 4-16 weeks. We offer free consultations with transparent pricing and detailed proposals. No hidden costs!",
         sender: "bot",
         timestamp: new Date(),
         actions: [
           {
-            label: "See All Skills",
-            action: () => (window.location.href = "/#skills"),
+            label: "Get Custom Quote",
+            action: () => (window.location.href = "/get-started"),
+            icon: <ExternalLink className="w-4 h-4" />,
           },
         ],
       };
     }
 
-    // Contact related
+    // Contact & consultation related
     if (
       message.includes("contact") ||
-      message.includes("email") ||
-      message.includes("phone") ||
-      message.includes("reach")
+      message.includes("consultation") ||
+      message.includes("meeting") ||
+      message.includes("discuss") ||
+      message.includes("get started")
     ) {
       return {
         id: Date.now().toString(),
-        text: "You can reach Pratik at pratikvaishnav2013@gmail.com or call/WhatsApp him at +91 9879957167. He's also available on LinkedIn and GitHub.",
+        text: "Ready to start your project? Schedule a free consultation: Call +91 9879957167, email pratikvaishnav2013@gmail.com, or book a meeting online. We respond within 24-48 hours with detailed proposals.",
         sender: "bot",
         timestamp: new Date(),
         actions: [
           {
-            label: "Send Email",
-            action: () => window.open("mailto:pratikvaishnav2013@gmail.com"),
+            label: "Schedule Free Call",
+            action: () => (window.location.href = "/get-started"),
+            icon: <Phone className="w-4 h-4" />,
+          },
+          {
+            label: "Email Direct",
+            action: () =>
+              window.open(
+                "mailto:pratikvaishnav2013@gmail.com?subject=Enterprise Solution Consultation",
+              ),
             icon: <Mail className="w-4 h-4" />,
           },
           {
             label: "WhatsApp",
-            action: () => window.open("https://wa.me/919879957167", "_blank"),
+            action: () =>
+              window.open(
+                "https://wa.me/919879957167?text=Hi%2C%20I%27m%20interested%20in%20discussing%20an%20enterprise%20solution",
+                "_blank",
+              ),
             icon: <Phone className="w-4 h-4" />,
-          },
-          {
-            label: "Contact Page",
-            action: () => (window.location.href = "/contact"),
-            icon: <ExternalLink className="w-4 h-4" />,
           },
         ],
       };
@@ -302,46 +309,45 @@ const Chatbot = () => {
 
   const quickActions = [
     {
-      label: "Experience",
-      action: () => handleUserMessage("Tell me about his experience"),
+      label: "Services",
+      action: () => handleUserMessage("What services do you offer?"),
     },
     {
-      label: "Skills",
-      action: () => handleUserMessage("What are his technical skills?"),
+      label: "Pricing",
+      action: () => handleUserMessage("What are your prices and timelines?"),
     },
     {
-      label: "Contact",
-      action: () => handleUserMessage("How can I contact Pratik?"),
+      label: "Results",
+      action: () => (window.location.href = "/case-studies"),
     },
     {
-      label: "Resume",
-      action: () =>
-        window.open(
-          "https://pratik-vaishnav.github.io/Pratik_Vaishnav_Resume.pdf",
-          "_blank",
-        ),
+      label: "Get Started",
+      action: () => handleUserMessage("How can I get started?"),
     },
   ];
 
   return (
     <>
-      {/* Chat Window */}
+      {/* Chat Window - Mobile-First Web3 Design */}
       {isOpen && (
-        <Card
+        <div
           className={cn(
-            "fixed bottom-20 right-4 w-80 md:w-96 h-96 shadow-2xl border-0 z-50 transition-all duration-300",
-            isMinimized ? "h-14" : "h-96",
+            "fixed bottom-16 sm:bottom-20 right-2 sm:right-4 w-[calc(100vw-16px)] sm:w-80 md:w-96 bg-white/10 backdrop-blur-2xl border border-white/30 rounded-2xl sm:rounded-3xl shadow-2xl z-50 transition-all duration-500 transform",
+            isMinimized ? "h-12 sm:h-14" : "h-[70vh] sm:h-96",
+            "max-w-sm sm:max-w-none",
           )}
         >
           {/* Header */}
-          <div className="flex items-center justify-between p-4 bg-gradient-to-r from-primary-600 to-accent text-white rounded-t-lg">
+          <div className="flex items-center justify-between p-3 sm:p-4 bg-gradient-to-r from-primary-600/90 to-accent/90 backdrop-blur-xl text-white rounded-t-2xl sm:rounded-t-3xl border-b border-white/20">
             <div className="flex items-center gap-3">
               <div className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center">
                 <Bot className="w-5 h-5" />
               </div>
               <div>
-                <h3 className="font-semibold text-sm">Pratik's Assistant</h3>
-                <p className="text-xs opacity-90">Usually replies instantly</p>
+                <h3 className="font-semibold text-sm">ScaleCore Assistant</h3>
+                <p className="text-xs opacity-90">
+                  Enterprise solutions expert
+                </p>
               </div>
             </div>
             <div className="flex items-center gap-2">
@@ -371,7 +377,7 @@ const Chatbot = () => {
           {!isMinimized && (
             <>
               {/* Messages */}
-              <div className="flex-1 p-4 space-y-4 overflow-y-auto max-h-60">
+              <div className="flex-1 p-3 sm:p-4 space-y-3 sm:space-y-4 overflow-y-auto max-h-[50vh] sm:max-h-60">
                 {messages.map((message) => (
                   <div
                     key={message.id}
@@ -465,22 +471,22 @@ const Chatbot = () => {
               )}
 
               {/* Input */}
-              <div className="p-4 border-t">
+              <div className="p-3 sm:p-4 border-t border-white/20 bg-white/5 backdrop-blur-sm rounded-b-2xl sm:rounded-b-3xl">
                 <form onSubmit={handleSubmit} className="flex gap-2">
                   <input
                     ref={inputRef}
                     type="text"
                     value={inputValue}
                     onChange={(e) => setInputValue(e.target.value)}
-                    placeholder="Ask me anything about Pratik..."
-                    className="flex-1 px-3 py-2 text-sm border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500"
+                    placeholder="Ask about our services..."
+                    className="flex-1 px-3 py-2.5 sm:py-2 text-sm bg-white/20 backdrop-blur-sm border border-white/30 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-500 focus:bg-white/30 transition-all duration-200 placeholder:text-gray-600"
                     disabled={isTyping}
                   />
                   <Button
                     type="submit"
                     size="sm"
                     disabled={!inputValue.trim() || isTyping}
-                    className="px-3"
+                    className="px-3 py-2.5 sm:py-2 bg-gradient-to-r from-primary-600 to-accent hover:from-primary-700 hover:to-accent/90 rounded-xl shadow-lg"
                   >
                     <Send className="w-4 h-4" />
                   </Button>
@@ -488,27 +494,29 @@ const Chatbot = () => {
               </div>
             </>
           )}
-        </Card>
+        </div>
       )}
 
-      {/* Chat Button */}
-      <Button
+      {/* Chat Button - Mobile-First Web3 Design */}
+      <button
         onClick={() => setIsOpen(!isOpen)}
         className={cn(
-          "fixed bottom-4 right-4 h-14 w-14 rounded-full shadow-lg z-50 transition-all duration-300",
-          isOpen ? "scale-95" : "scale-100 hover:scale-105",
+          "fixed bottom-4 right-2 sm:right-4 h-12 w-12 sm:h-14 sm:w-14 bg-gradient-to-r from-primary-600 to-accent hover:from-primary-700 hover:to-accent/90 rounded-full shadow-xl shadow-primary-500/25 z-50 transition-all duration-300 transform active:scale-95 touch-improvement backdrop-blur-sm border border-white/20",
+          isOpen
+            ? "scale-95 rotate-180"
+            : "scale-100 hover:scale-110 pulse-glow",
         )}
       >
         {isOpen ? (
-          <X className="w-6 h-6" />
+          <X className="w-5 h-5 sm:w-6 sm:h-6 text-white mx-auto" />
         ) : (
-          <div className="relative">
-            <MessageCircle className="w-6 h-6" />
+          <div className="relative flex items-center justify-center">
+            <MessageCircle className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
             {/* Notification pulse */}
-            <div className="absolute -top-1 -right-1 w-3 h-3 bg-red-500 rounded-full animate-pulse"></div>
+            <div className="absolute -top-1 -right-1 w-2.5 h-2.5 sm:w-3 sm:h-3 bg-accent rounded-full animate-pulse border border-white/50"></div>
           </div>
         )}
-      </Button>
+      </button>
     </>
   );
 };

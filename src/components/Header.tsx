@@ -11,10 +11,10 @@ const Header = () => {
 
   const navItems = [
     { path: "/", label: "Home" },
-    { path: "/experience", label: "Experience" },
-    { path: "/projects", label: "Projects" },
-    { path: "/about", label: "About" },
-    { path: "/contact", label: "Contact" },
+    { path: "/services", label: "Services" },
+    { path: "/case-studies", label: "Case Studies" },
+    { path: "/why-choose-us", label: "Why Choose Us" },
+    { path: "/get-started", label: "Get Started" },
   ];
 
   const isActivePath = (path: string) => {
@@ -24,108 +24,124 @@ const Header = () => {
   };
 
   return (
-    <header className="fixed top-0 w-full bg-white/80 backdrop-blur-md border-b border-gray-200 z-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
+    <header className="fixed top-0 w-full bg-white/10 backdrop-blur-xl border-b border-white/20 z-50 shadow-lg shadow-primary-500/10">
+      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
+        <div className="flex justify-between items-center h-14 sm:h-16">
           {/* Logo */}
           <Link to="/" className="flex items-center">
-            <Logo size="md" showText={false} />
-            <span className="ml-3 font-bold text-xl text-primary-900 hidden sm:block">
-              Pratik Vaishnav
-            </span>
+            <Logo size="md" showText={true} />
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-8">
+          <nav className="hidden lg:flex items-center space-x-6">
             {navItems.map((item) => (
               <Link
                 key={item.path}
                 to={item.path}
                 className={cn(
-                  "text-sm font-medium transition-colors hover:text-primary-600",
+                  "relative px-3 py-2 text-sm font-medium transition-all duration-300 rounded-full hover:bg-white/10 hover:backdrop-blur-sm",
                   isActivePath(item.path)
-                    ? "text-primary-600"
-                    : "text-gray-600",
+                    ? "text-primary-600 bg-primary-50/80 backdrop-blur-sm shadow-sm"
+                    : "text-gray-700 hover:text-primary-600",
                 )}
               >
                 {item.label}
+                {isActivePath(item.path) && (
+                  <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-1 h-1 bg-primary-600 rounded-full animate-pulse"></div>
+                )}
               </Link>
             ))}
           </nav>
 
           {/* Desktop CTA Buttons */}
-          <div className="hidden md:flex items-center space-x-4">
-            <Button variant="outline" size="sm" asChild>
-              <a
-                href="https://pratik-vaishnav.github.io/Pratik_Vaishnav_Resume.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2"
-              >
+          <div className="hidden lg:flex items-center space-x-3">
+            <Button
+              variant="outline"
+              size="sm"
+              asChild
+              className="border-white/30 bg-white/10 backdrop-blur-sm hover:bg-white/20 text-gray-700 hover:text-primary-600 transition-all duration-300"
+            >
+              <Link to="/case-studies" className="flex items-center gap-2">
                 <Download className="w-4 h-4" />
-                Resume
-              </a>
+                Results
+              </Link>
             </Button>
-            <Button size="sm" asChild>
-              <Link to="/contact" className="flex items-center gap-2">
+            <Button
+              size="sm"
+              asChild
+              className="bg-gradient-to-r from-primary-600 to-accent hover:from-primary-700 hover:to-accent/90 shadow-lg shadow-primary-500/25 hover:shadow-xl hover:shadow-primary-500/30 transition-all duration-300"
+            >
+              <Link to="/get-started" className="flex items-center gap-2">
                 <Mail className="w-4 h-4" />
-                Contact
+                Start Now
               </Link>
             </Button>
           </div>
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden p-2"
+            className="lg:hidden p-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20 transition-all duration-300 shadow-lg"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             aria-label="Toggle menu"
           >
             {isMenuOpen ? (
-              <X className="w-6 h-6" />
+              <X className="w-5 h-5 text-gray-700" />
             ) : (
-              <Menu className="w-6 h-6" />
+              <Menu className="w-5 h-5 text-gray-700" />
             )}
           </button>
         </div>
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="md:hidden py-4 border-t border-gray-200 animate-fade-in">
-            <nav className="flex flex-col space-y-4">
+          <div className="lg:hidden absolute top-full left-0 right-0 bg-white/95 backdrop-blur-xl border-b border-white/20 shadow-2xl shadow-primary-500/10 animate-fade-in">
+            <nav className="flex flex-col p-4 space-y-2">
               {navItems.map((item) => (
                 <Link
                   key={item.path}
                   to={item.path}
                   className={cn(
-                    "text-sm font-medium transition-colors hover:text-primary-600 px-2 py-1",
+                    "relative px-4 py-3 text-base font-medium transition-all duration-300 rounded-2xl",
                     isActivePath(item.path)
-                      ? "text-primary-600"
-                      : "text-gray-600",
+                      ? "text-primary-600 bg-gradient-to-r from-primary-50 to-accent/10 border border-primary-200/50 shadow-sm"
+                      : "text-gray-700 hover:text-primary-600 hover:bg-white/50 active:scale-95",
                   )}
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {item.label}
+                  {isActivePath(item.path) && (
+                    <div className="absolute right-4 top-1/2 transform -translate-y-1/2 w-2 h-2 bg-primary-600 rounded-full animate-pulse"></div>
+                  )}
                 </Link>
               ))}
-              <div className="flex flex-col gap-3 pt-4">
-                <Button variant="outline" size="sm" asChild>
-                  <a
-                    href="https://pratik-vaishnav.github.io/Pratik_Vaishnav_Resume.pdf"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2 justify-center"
+              <div className="flex flex-col gap-3 pt-4 mt-4 border-t border-white/20">
+                <Button
+                  variant="outline"
+                  size="sm"
+                  asChild
+                  className="border-primary-200 bg-white/50 backdrop-blur-sm hover:bg-primary-50 text-gray-700 hover:text-primary-600 rounded-2xl"
+                >
+                  <Link
+                    to="/case-studies"
+                    className="flex items-center gap-2 justify-center py-3"
+                    onClick={() => setIsMenuOpen(false)}
                   >
                     <Download className="w-4 h-4" />
-                    Resume
-                  </a>
+                    View Results
+                  </Link>
                 </Button>
-                <Button size="sm" asChild>
+                <Button
+                  size="sm"
+                  asChild
+                  className="bg-gradient-to-r from-primary-600 to-accent hover:from-primary-700 hover:to-accent/90 shadow-lg shadow-primary-500/25 rounded-2xl"
+                >
                   <Link
-                    to="/contact"
-                    className="flex items-center gap-2 justify-center"
+                    to="/get-started"
+                    className="flex items-center gap-2 justify-center py-3"
+                    onClick={() => setIsMenuOpen(false)}
                   >
                     <Mail className="w-4 h-4" />
-                    Contact
+                    Start Now
                   </Link>
                 </Button>
               </div>

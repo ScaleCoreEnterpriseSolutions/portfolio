@@ -86,7 +86,7 @@ const About = () => {
       icon: Trophy,
       title: "Cricket",
       description:
-        "Following and playing cricket, understanding teamwork dynamics",
+        "Watching and playing cricket, understanding teamwork dynamics",
     },
     {
       icon: Music,
@@ -152,7 +152,7 @@ const About = () => {
                 <p>
                   I believe in writing code that not only works but is
                   maintainable, scalable, and elegant. When I'm not coding,
-                  you'll find me reading inspirational stories, following
+                  you'll find me reading inspirational stories, watching
                   cricket, or exploring new technologies that could solve
                   tomorrow's problems.
                 </p>

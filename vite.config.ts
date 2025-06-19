@@ -5,6 +5,9 @@ import path from "path";
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
   base: mode === 'production' ? '/pratik-vaishnav.github.io/' : '/',
+  define: {
+    'import.meta.env.BASE_URL': JSON.stringify(mode === 'production' ? '/pratik-vaishnav.github.io/' : '/'),
+  },
   
   server: {
     host: "::",
@@ -17,6 +20,21 @@ export default defineConfig(({ mode }) => ({
     outDir: 'dist',
     assetsDir: 'assets',
     sourcemap: mode !== 'production',
+    emptyOutDir: true,
+    rollupOptions: {
+      output: {
+        manualChunks: undefined,
+        entryFileNames: 'assets/[name].[hash].js',
+        chunkFileNames: 'assets/[name].[hash].js',
+        assetFileNames: 'assets/[name].[hash][extname]',
+      },
+    },
+    minify: 'terser',
+    terserOptions: {
+      format: {
+        comments: false,
+      },
+    },
   },
   
   resolve: {

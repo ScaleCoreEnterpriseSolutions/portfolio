@@ -1,0 +1,39 @@
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background with gradient matching logo -->
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3377FF;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#0B50DA;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#884DFF;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="overlayGradient" x1="100%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:rgba(136,77,255,0.2);stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#6699FF;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Main background with rounded corners -->
+  <rect width="32" height="32" rx="6" fill="url(#bgGradient)" transform="rotate(3 16 16) scale(1.05)"/>
+  <rect width="32" height="32" rx="6" fill="url(#overlayGradient)" opacity="0.4" transform="rotate(-3 16 16)"/>
+  <rect width="32" height="32" rx="6" fill="url(#bgGradient)"/>
+  
+  <!-- Core symbol - central circle (scaled from r="3" to fit 32px canvas) -->
+  <circle cx="16" cy="16" r="4" fill="white" fill-opacity="1"/>
+  
+  <!-- Scaling rings (scaled proportionally) -->
+  <circle cx="16" cy="16" r="9.3" stroke="white" stroke-width="2" fill="none" stroke-opacity="0.7"/>
+  <circle cx="16" cy="16" r="13.3" stroke="white" stroke-width="1.3" fill="none" stroke-opacity="0.4"/>
+  
+  <!-- Arrow elements representing scaling (scaled and positioned) -->
+  <path d="M16 2.7L18.7 8H13.3L16 2.7Z" fill="white" fill-opacity="0.8"/>
+  <path d="M29.3 16L24 13.3V18.7L29.3 16Z" fill="white" fill-opacity="0.6"/>
+  <path d="M16 29.3L13.3 24H18.7L16 29.3Z" fill="white" fill-opacity="0.6"/>
+  <path d="M2.7 16L8 18.7V13.3L2.7 16Z" fill="white" fill-opacity="0.6"/>
+  
+  <!-- Corner accent dots (scaled from r="1" to r="1.3") -->
+  <circle cx="22.7" cy="9.3" r="1.3" fill="white" fill-opacity="0.8"/>
+  <circle cx="9.3" cy="22.7" r="1.3" fill="white" fill-opacity="0.8"/>
+  
+  <!-- Corner accent circle matching logo -->
+  <circle cx="26" cy="6" r="2.7" fill="#884DFF" opacity="0.9"/>
+</svg>

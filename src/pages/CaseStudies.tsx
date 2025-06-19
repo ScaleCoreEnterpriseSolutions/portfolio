@@ -19,7 +19,7 @@ import {
   Shield,
   Database,
   Calendar,
-  Phone,
+  MessageCircle,
 } from "lucide-react";
 import { Link } from "react-router-dom";
 
@@ -315,11 +315,11 @@ const CaseStudies = () => {
                   className="text-lg px-8 py-4"
                 >
                   <a
-                    href="tel:+919879957167"
+                    href="#contact-form"
                     className="flex items-center gap-2"
                   >
-                    <Phone className="w-5 h-5" />
-                    Discuss Your Needs
+                    <MessageCircle className="w-5 h-5" />
+                    Get in Touch
                   </a>
                 </Button>
               </div>

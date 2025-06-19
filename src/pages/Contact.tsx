@@ -4,7 +4,6 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import {
   Mail,
-  Phone,
   MapPin,
   Calendar,
   ExternalLink,
@@ -14,12 +13,23 @@ import {
   MessageSquare,
 } from "lucide-react";
 
+interface ContactMethod {
+  icon: React.ComponentType<{ className?: string }>;
+  title: string;
+  description: string;
+  value: string;
+  action: string;
+  href: string;
+  primary?: boolean;
+  available?: boolean;
+}
+
 const Contact = () => {
-  const contactMethods = [
+  const contactMethods: ContactMethod[] = [
     {
       icon: Mail,
-      title: "Email",
-      description: "Best way to reach me for opportunities",
+      title: "Professional Email",
+      description: "For project inquiries and collaborations",
       value: "info@scalecore.xyz",
       action: "Send Email",
       href: "mailto:info@scalecore.xyz",
@@ -28,28 +38,28 @@ const Contact = () => {
     {
       icon: Linkedin,
       title: "LinkedIn",
-      description: "Professional networking and updates",
-      value: "Connect with me",
+      description: "Professional networking and work history",
+      value: "linkedin.com/in/yourprofile",
       action: "View Profile",
-      href: "https://www.linkedin.com/in/pratik-vaishnav-244573a8",
+      href: "https://www.linkedin.com/in/yourprofile",
       available: true,
-    },
-    {
-      icon: Phone,
-      title: "Phone/WhatsApp",
-      description: "Available for urgent discussions",
-      value: "+91 9879957167",
-      action: "Call/Message",
-      href: "tel:+919879957167",
-      whatsapp: "https://wa.me/919879957167",
     },
     {
       icon: Github,
       title: "GitHub",
-      description: "Open source contributions and projects",
-      value: "pratik-vaishnav",
-      action: "View Repositories",
-      href: "https://github.com/pratik-vaishnav",
+      description: "Code repositories and open source contributions",
+      value: "github.com/yourusername",
+      action: "View Projects",
+      href: "https://github.com/yourusername",
+      available: true,
+    },
+    {
+      icon: Calendar,
+      title: "Schedule a Call",
+      description: "Book a meeting for detailed discussions",
+      value: "Schedule a consultation call",
+      action: "Book Now",
+      href: "https://calendly.com/scalecore-info",
       available: true,
     },
   ];
@@ -57,8 +67,10 @@ const Contact = () => {
   const availability = {
     status: "Available",
     type: "Remote Work & Freelance",
-    location: "India (IST Timezone)",
+    location: "Remote (Worldwide)",
     response: "Within 24 hours",
+    workingHours: "Monday - Friday, 9 AM - 5 PM (Your Timezone)",
+    preferredContact: "Email for initial contact"
   };
 
   return (
@@ -94,15 +106,33 @@ const Contact = () => {
               </div>
 
               <div className="grid md:grid-cols-2 gap-4 text-sm">
-                <div className="flex items-center gap-2">
-                  <Calendar className="w-4 h-4 text-gray-500" />
-                  <span className="text-gray-600">
-                    Response time: {availability.response}
-                  </span>
+                <div className="flex items-start gap-2">
+                  <Calendar className="w-4 h-4 text-gray-500 mt-0.5 flex-shrink-0" />
+                  <div>
+                    <p className="text-gray-600 font-medium">Working Hours</p>
+                    <p className="text-gray-500">{availability.workingHours}</p>
+                  </div>
                 </div>
-                <div className="flex items-center gap-2">
-                  <MapPin className="w-4 h-4 text-gray-500" />
-                  <span className="text-gray-600">{availability.location}</span>
+                <div className="flex items-start gap-2">
+                  <MessageSquare className="w-4 h-4 text-gray-500 mt-0.5 flex-shrink-0" />
+                  <div>
+                    <p className="text-gray-600 font-medium">Preferred Contact</p>
+                    <p className="text-gray-500">{availability.preferredContact}</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-2">
+                  <MapPin className="w-4 h-4 text-gray-500 mt-0.5 flex-shrink-0" />
+                  <div>
+                    <p className="text-gray-600 font-medium">Location</p>
+                    <p className="text-gray-500">{availability.location}</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-2">
+                  <div className="w-4 h-4 flex-shrink-0" />
+                  <div>
+                    <p className="text-gray-600 font-medium">Response Time</p>
+                    <p className="text-gray-500">{availability.response}</p>
+                  </div>
                 </div>
               </div>
             </CardContent>
@@ -145,7 +175,14 @@ const Contact = () => {
                         {method.description}
                       </p>
                       <p className="text-sm text-gray-800 font-medium mb-3">
-                        {method.value}
+                        <a
+                          href={method.href}
+                          target={!method.href.startsWith('#') ? "_blank" : undefined}
+                          rel={!method.href.startsWith('#') ? "noopener noreferrer" : undefined}
+                          className="text-primary-600 hover:underline break-all"
+                        >
+                          {method.value}
+                        </a>
                       </p>
 
                       {method.available !== false ? (
@@ -157,33 +194,20 @@ const Contact = () => {
                           >
                             <a
                               href={method.href}
-                              target="_blank"
-                              rel="noopener noreferrer"
+                              target={!method.href.startsWith('#') ? "_blank" : undefined}
+                              rel={!method.href.startsWith('#') ? "noopener noreferrer" : undefined}
                               className="flex items-center gap-2"
                             >
                               {method.action === "Send Email" ? (
                                 <Mail className="w-4 h-4" />
-                              ) : method.action === "Call/Message" ? (
-                                <Phone className="w-4 h-4" />
+                              ) : method.action === "Book Now" ? (
+                                <Calendar className="w-4 h-4" />
                               ) : (
                                 <ExternalLink className="w-4 h-4" />
                               )}
                               {method.action}
                             </a>
                           </Button>
-                          {method.whatsapp && (
-                            <Button size="sm" variant="outline" asChild>
-                              <a
-                                href={method.whatsapp}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="flex items-center gap-2"
-                              >
-                                <MessageSquare className="w-4 h-4" />
-                                WhatsApp
-                              </a>
-                            </Button>
-                          )}
                         </div>
                       ) : (
                         <Badge variant="outline" className="text-xs">
@@ -247,36 +271,17 @@ const Contact = () => {
 
           {/* CTA */}
           <div className="text-center">
-            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-4">
-              <Button size="lg" asChild className="text-lg px-8 py-4">
-                <a
-                  href="mailto:info@scalecore.xyz"
-                  className="flex items-center gap-2"
-                >
-                  <Mail className="w-5 h-5" />
-                  Send Email
-                </a>
-              </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                asChild
-                className="text-lg px-8 py-4"
+            <Button size="lg" asChild>
+              <a
+                href="#contact-form"
+                className="flex items-center gap-2"
               >
-                <a
-                  href="https://wa.me/919879957167"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2"
-                >
-                  <MessageSquare className="w-5 h-5" />
-                  WhatsApp
-                </a>
-              </Button>
-            </div>
+                <Mail className="w-5 h-5" />
+                Get in Touch
+              </a>
+            </Button>
             <p className="text-sm text-gray-600">
-              Ready to discuss your project? Reach out directly via email or
-              WhatsApp
+              Ready to discuss your project? Get in touch through the contact form or email.
             </p>
           </div>
         </div>

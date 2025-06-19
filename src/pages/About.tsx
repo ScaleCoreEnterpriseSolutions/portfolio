@@ -108,10 +108,10 @@ const About = () => {
           {/* Hero Section */}
           <div className="text-center mb-16">
             <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-              About Pratik Vaishnav
+              About Me
             </h1>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              A passionate backend developer with 8+ years of experience
+              A passionate backend developer with extensive experience
               building scalable enterprise systems. Driven by innovation,
               excellence, and the pursuit of creating solutions that make a real
               impact.
@@ -438,13 +438,11 @@ const About = () => {
                   className="text-lg px-8 py-4 border-white text-white hover:bg-white hover:text-primary-600"
                 >
                   <a
-                    href="https://pratik-vaishnav.github.io/Pratik_Vaishnav_Resume.pdf"
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    href="#"
                     className="flex items-center gap-2"
                   >
                     <Download className="w-5 h-5" />
-                    View Resume
+                    Resume Available on Request
                   </a>
                 </Button>
               </div>

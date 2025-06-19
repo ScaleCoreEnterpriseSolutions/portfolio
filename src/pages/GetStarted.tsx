@@ -4,7 +4,6 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
   Calendar,
-  Phone,
   Mail,
   MessageCircle,
   Clock,
@@ -26,36 +25,20 @@ import {
 const GetStarted = () => {
   const contactMethods = [
     {
-      title: "Schedule Free Consultation",
+      title: "Schedule a Consultation",
       description:
-        "Book a 30-60 minute call to discuss your requirements and get expert recommendations",
+        "Book a call to discuss your requirements and get expert recommendations",
       icon: Calendar,
       color: "bg-green-500",
-      action: "Schedule Call",
+      action: "Book Now",
       benefits: [
         "Free technical consultation",
         "Custom solution roadmap",
         "Project timeline & estimates",
         "No obligation discussion",
       ],
-      href: "https://calendly.com/scalecore-info", // Replace with actual booking link
+      href: "https://calendly.com/scalecore-info",
       primary: true,
-    },
-    {
-      title: "Direct Phone Call",
-      description:
-        "Speak directly for immediate consultation and quick project discussions",
-      icon: Phone,
-      color: "bg-blue-500",
-      action: "Call Now",
-      benefits: [
-        "Immediate response",
-        "Real-time discussion",
-        "Quick project assessment",
-        "Instant technical guidance",
-      ],
-      href: "tel:+919879957167",
-      primary: false,
     },
     {
       title: "Email Consultation",
@@ -70,23 +53,7 @@ const GetStarted = () => {
         "Technical documentation",
         "Comprehensive quotes",
       ],
-      href: "mailto:info@scalecore.xyz?subject=Enterprise Solution Consultation&body=Hi,%0D%0A%0D%0AI'm interested in discussing an enterprise solution for our business.%0D%0A%0D%0AProject Details:%0D%0A- Company: %0D%0A- Industry: %0D%0A- Project Type: %0D%0A- Timeline: %0D%0A- Budget Range: %0D%0A%0D%0APlease let me know the best time to discuss this further.%0D%0A%0D%0AThank you!",
-      primary: false,
-    },
-    {
-      title: "WhatsApp Business",
-      description:
-        "Quick messaging for initial inquiries and instant communication",
-      icon: MessageCircle,
-      color: "bg-green-600",
-      action: "Message Now",
-      benefits: [
-        "Instant messaging",
-        "Quick responses",
-        "File sharing capability",
-        "Convenient communication",
-      ],
-      href: "https://wa.me/919879957167?text=Hi%20Pratik%2C%20I%27m%20interested%20in%20discussing%20an%20enterprise%20solution%20for%20our%20business.%20Could%20we%20schedule%20a%20consultation%3F",
+      href: "mailto:info@scalecore.xyz?subject=Project Inquiry&body=Hi,%0D%0A%0D%0AI'm interested in discussing a potential project.%0D%0A%0D%0AProject Details:%0D%0A- Company: %0D%0A- Industry: %0D%0A- Project Type: %0D%0A- Timeline: %0D%0A- Budget Range: %0D%0A%0D%0APlease let me know the best way to proceed.%0D%0A%0D%0AThank you!",
       primary: false,
     },
   ];
@@ -200,14 +167,12 @@ const GetStarted = () => {
   ];
 
   const clientInfo = {
-    name: "Pratik Vaishnav",
-    title: "Lead Enterprise Solutions Architect",
+    name: "ScaleCore Solutions",
+    title: "Senior Backend Engineer",
     experience: "8+ Years",
-    availability: "Available for immediate start",
-    timezone: "IST (GMT+5:30)",
-    workingHours: "Mon-Fri: 9 AM - 7 PM IST",
-    languages: ["English", "Hindi", "Gujarati"],
-    location: "India (Remote work globally)",
+    workingHours: "Monday - Friday, 9 AM - 5 PM",
+    location: "Remote (Worldwide)",
+    availability: "Available for new projects",
   };
 
   return (
@@ -512,21 +477,12 @@ const GetStarted = () => {
                         </span>
                       </div>
                       <div className="flex items-center gap-2">
-                        <Phone className="w-4 h-4 text-primary-600" />
-                        <a
-                          href="tel:+919879957167"
-                          className="text-primary-600 hover:underline"
-                        >
-                          +91 98799 57167
-                        </a>
-                      </div>
-                      <div className="flex items-center gap-2">
                         <Mail className="w-4 h-4 text-primary-600" />
                         <a
                           href="mailto:info@scalecore.xyz"
                           className="text-primary-600 hover:underline"
                         >
-                          info@scalecore.xyz
+                          Email Us
                         </a>
                       </div>
                       <div className="flex items-center gap-2">
@@ -585,9 +541,9 @@ const GetStarted = () => {
                 asChild
                 className="text-lg px-8 py-4 border-white text-white hover:bg-white hover:text-primary-600"
               >
-                <a href="tel:+919879957167" className="flex items-center gap-2">
-                  <Phone className="w-5 h-5" />
-                  Call: +91 98799 57167
+                <a href="#contact-form" className="flex items-center gap-2">
+                  <MessageCircle className="w-5 h-5" />
+                  Get in Touch
                 </a>
               </Button>
             </div>

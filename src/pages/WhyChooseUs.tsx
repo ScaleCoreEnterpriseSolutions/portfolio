@@ -17,7 +17,7 @@ import {
   Code,
   Database,
   Calendar,
-  Phone,
+  MessageCircle,
   ArrowRight,
   Trophy,
   Lightbulb,
@@ -627,9 +627,9 @@ const WhyChooseUs = () => {
                 asChild
                 className="text-lg px-8 py-4 border-white text-white hover:bg-white hover:text-primary-600"
               >
-                <a href="tel:+919879957167" className="flex items-center gap-2">
-                  <Phone className="w-5 h-5" />
-                  Call: +91 98799 57167
+                <a href="#contact-form" className="flex items-center gap-2">
+                  <MessageCircle className="w-5 h-5" />
+                  Get in Touch
                 </a>
               </Button>
             </div>

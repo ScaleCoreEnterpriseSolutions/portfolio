@@ -17,7 +17,6 @@ import {
   Code,
   Users,
   Star,
-  Phone,
   Mail,
   Calendar,
   Target,
@@ -292,13 +291,11 @@ const Index = () => {
                     className="w-full sm:w-auto text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 hover:bg-white/10 backdrop-blur-sm transition-all duration-300 rounded-2xl border border-transparent hover:border-white/20"
                   >
                     <a
-                      href="tel:+919879957167"
+                      href="#contact-form"
                       className="flex items-center justify-center gap-2"
                     >
-                      <Phone className="w-4 h-4 sm:w-5 sm:h-5" />
-                      <span className="hidden sm:inline">Call Now: </span>
-                      <span className="sm:hidden">Call: </span>
-                      +91 98799 57167
+                      <MessageCircle className="w-4 h-4 sm:w-5 sm:h-5" />
+                      <span className="sm:inline">Get in Touch</span>
                     </a>
                   </Button>
                 </motion.div>
@@ -556,17 +553,6 @@ const Index = () => {
                 <Calendar className="w-5 h-5" />
                 Schedule Free Consultation
               </Link>
-            </Button>
-            <Button
-              size="lg"
-              variant="outline"
-              asChild
-              className="text-lg px-8 py-4 border-white text-white hover:bg-white hover:text-primary-600"
-            >
-              <a href="tel:+919879957167" className="flex items-center gap-2">
-                <Phone className="w-5 h-5" />
-                Call: +91 98799 57167
-              </a>
             </Button>
             <Button
               size="lg"

@@ -280,13 +280,11 @@ const Experience = () => {
             <div className="flex justify-center gap-4 mt-8">
               <Button asChild size="lg">
                 <a
-                  href="https://pratik-vaishnav.github.io/Pratik_Vaishnav_Resume.pdf"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href="#"
                   className="flex items-center gap-2"
                 >
                   <Download className="w-5 h-5" />
-                  Download Resume
+                  Resume Available on Request
                 </a>
               </Button>
               <Button variant="outline" size="lg" asChild>

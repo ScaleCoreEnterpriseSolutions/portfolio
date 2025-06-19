@@ -10,7 +10,6 @@ import {
   User,
   Download,
   Mail,
-  Phone,
   ExternalLink,
   Minimize2,
   Maximize2,
@@ -138,31 +137,22 @@ const Chatbot = () => {
     ) {
       return {
         id: Date.now().toString(),
-        text: "Ready to start your project? Schedule a free consultation: Call +91 9879957167, email info@scalecore.xyz, or book a meeting online. We respond within 24-48 hours with detailed proposals.",
+        text: "Ready to start your project? Please use the contact form or email for inquiries. I typically respond within 24-48 hours with detailed information.",
         sender: "bot",
         timestamp: new Date(),
         actions: [
           {
-            label: "Schedule Free Call",
-            action: () => (window.location.href = "/get-started"),
-            icon: <Phone className="w-4 h-4" />,
+            label: "Message Us",
+            action: () => (window.location.href = "#contact-form"),
+            icon: <MessageCircle className="w-4 h-4" />,
           },
           {
-            label: "Email Direct",
+            label: "Email Me",
             action: () =>
               window.open(
-                "mailto:info@scalecore.xyz?subject=Enterprise Solution Consultation",
+                "mailto:info@scalecore.xyz?subject=Project Inquiry",
               ),
             icon: <Mail className="w-4 h-4" />,
-          },
-          {
-            label: "WhatsApp",
-            action: () =>
-              window.open(
-                "https://wa.me/919879957167?text=Hi%2C%20I%27m%20interested%20in%20discussing%20an%20enterprise%20solution",
-                "_blank",
-              ),
-            icon: <Phone className="w-4 h-4" />,
           },
         ],
       };
@@ -177,7 +167,7 @@ const Chatbot = () => {
     ) {
       return {
         id: Date.now().toString(),
-        text: "Pratik is based in India (IST timezone) and is available for remote work, freelance projects, and consulting opportunities. He has extensive experience working with international teams.",
+        text: "Available for remote work, freelance projects, and consulting opportunities with extensive experience working with international teams.",
         sender: "bot",
         timestamp: new Date(),
         actions: [
@@ -199,7 +189,7 @@ const Chatbot = () => {
     ) {
       return {
         id: Date.now().toString(),
-        text: "Pratik has a Bachelor's in Computer Engineering from Government Engineering College, Modasa (2013-2017) with an impressive 8.40/10.00 CGPA.",
+        text: "Holds a Bachelor's degree in Computer Engineering with strong academic performance.",
         sender: "bot",
         timestamp: new Date(),
         actions: [
@@ -220,7 +210,7 @@ const Chatbot = () => {
     ) {
       return {
         id: Date.now().toString(),
-        text: "Pratik has been recognized as Employee of the Month 3 times at Bluevine Technologies and received the BIAS Award for upholding core values while leading critical backend services.",
+        text: "Has been recognized multiple times for outstanding performance and leadership in backend services.",
         sender: "bot",
         timestamp: new Date(),
         actions: [
@@ -241,7 +231,7 @@ const Chatbot = () => {
     ) {
       return {
         id: Date.now().toString(),
-        text: "Pratik has worked on enterprise-level projects including GST real-time processing systems, e-procurement platforms, and banking integrations. Many are enterprise projects with detailed case studies coming soon!",
+        text: "Has worked on various enterprise-level projects including real-time processing systems, e-procurement platforms, and banking integrations.",
         sender: "bot",
         timestamp: new Date(),
         actions: [
@@ -257,7 +247,7 @@ const Chatbot = () => {
     // Default response with helpful suggestions
     return {
       id: Date.now().toString(),
-      text: "I'd be happy to help! You can ask me about Pratik's experience, technical skills, education, achievements, or how to contact him. What would you like to know?",
+      text: "I'd be happy to help! You can ask about experience, technical skills, education, achievements, or how to get in touch. What would you like to know?",
       sender: "bot",
       timestamp: new Date(),
       actions: [

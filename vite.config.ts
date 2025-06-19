@@ -4,39 +4,41 @@ import path from "path";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
-  base: mode === 'production' ? '/pratik-vaishnav.github.io/' : '/',
+  base: mode === "production" ? "/pratik-vaishnav.github.io/" : "/",
   define: {
-    'import.meta.env.BASE_URL': JSON.stringify(mode === 'production' ? '/pratik-vaishnav.github.io/' : '/'),
+    "import.meta.env.BASE_URL": JSON.stringify(
+      mode === "production" ? "/pratik-vaishnav.github.io/" : "/",
+    ),
   },
-  
+
   server: {
     host: "::",
     port: 8080,
   },
-  
+
   plugins: [react()],
-  
+
   build: {
-    outDir: 'dist',
-    assetsDir: 'assets',
-    sourcemap: mode !== 'production',
+    outDir: "dist",
+    assetsDir: "assets",
+    sourcemap: mode !== "production",
     emptyOutDir: true,
     rollupOptions: {
       output: {
         manualChunks: undefined,
-        entryFileNames: 'assets/[name].[hash].js',
-        chunkFileNames: 'assets/[name].[hash].js',
-        assetFileNames: 'assets/[name].[hash][extname]',
+        // Use .js extension instead of .mjs to avoid MIME type issues on GitHub Pages
+        chunkFileNames: "assets/js/[name]-[hash].js",
+        entryFileNames: "assets/js/[name]-[hash].js",
+        assetFileNames: "assets/[ext]/[name]-[hash][extname]",
       },
     },
-    minify: 'terser',
-    terserOptions: {
-      format: {
-        comments: false,
-      },
-    },
+    // Use esbuild instead of terser for better GitHub Pages compatibility
+    minify: "esbuild",
+    target: "esnext",
+    // Ensure proper module format
+    cssCodeSplit: true,
   },
-  
+
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),

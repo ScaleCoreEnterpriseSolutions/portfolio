@@ -7,8 +7,10 @@
     "dev": "vite",
     "build": "vite build --mode production",
     "preview": "vite preview",
+    "clean": "rm -rf dist .cache",
+    "clean:build": "npm run clean && npm run build",
     "deploy": "gh-pages -d dist",
-    "predeploy": "npm run build",
+    "predeploy": "npm run clean:build",
     "test": "vitest --run",
     "format.fix": "prettier --write .",
     "typecheck": "tsc"
@@ -82,6 +84,7 @@
     "postcss": "^8.4.47",
     "prettier": "^3.5.3",
     "tailwindcss": "^3.4.11",
+    "terser": "^5.43.1",
     "typescript": "^5.5.3",
     "vite": "^6.2.2",
     "vitest": "^3.1.4"

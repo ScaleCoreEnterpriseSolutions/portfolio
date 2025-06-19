@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import Layout from "@/components/Layout";
+import { motion } from "framer-motion";
 import {
   ArrowRight,
   CheckCircle,
@@ -24,6 +25,10 @@ import {
   MessageCircle,
 } from "lucide-react";
 import { Link } from "react-router-dom";
+import {
+  buttonTransitionVariants,
+  linkTransitionVariants,
+} from "@/hooks/usePageTransition";
 
 const Index = () => {
   const clientProblems = [
@@ -216,53 +221,88 @@ const Index = () => {
                 millions of transactions with 99.9% uptime.
               </p>
 
-              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center mb-8 sm:mb-12 px-2">
-                <Button
-                  size="lg"
-                  asChild
-                  className="w-full sm:w-auto text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-primary-600 to-accent hover:from-primary-700 hover:to-accent/90 shadow-xl shadow-primary-500/25 hover:shadow-2xl hover:shadow-primary-500/30 transition-all duration-300 transform hover:scale-105 active:scale-95 rounded-2xl"
+              <motion.div
+                className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center mb-8 sm:mb-12 px-2"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.4 }}
+              >
+                <motion.div
+                  variants={buttonTransitionVariants}
+                  initial="initial"
+                  whileHover="hover"
+                  whileTap="tap"
                 >
-                  <Link
-                    to="/get-started"
-                    className="flex items-center justify-center gap-2"
+                  <Button
+                    size="lg"
+                    asChild
+                    className="w-full sm:w-auto text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-primary-600 to-accent hover:from-primary-700 hover:to-accent/90 shadow-xl shadow-primary-500/25 hover:shadow-2xl hover:shadow-primary-500/30 transition-all duration-300 rounded-2xl"
                   >
-                    Start Your Project
-                    <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
-                  </Link>
-                </Button>
+                    <Link
+                      to="/get-started"
+                      className="flex items-center justify-center gap-2"
+                    >
+                      Start Your Project
+                      <motion.div
+                        animate={{ x: [0, 5, 0] }}
+                        transition={{
+                          duration: 2,
+                          repeat: Infinity,
+                          ease: "easeInOut",
+                        }}
+                      >
+                        <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
+                      </motion.div>
+                    </Link>
+                  </Button>
+                </motion.div>
 
-                <Button
-                  variant="outline"
-                  size="lg"
-                  asChild
-                  className="w-full sm:w-auto text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 bg-white/20 backdrop-blur-xl border-white/30 hover:bg-white/30 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 active:scale-95 rounded-2xl"
+                <motion.div
+                  variants={buttonTransitionVariants}
+                  initial="initial"
+                  whileHover="hover"
+                  whileTap="tap"
                 >
-                  <Link
-                    to="/case-studies"
-                    className="flex items-center justify-center gap-2"
+                  <Button
+                    variant="outline"
+                    size="lg"
+                    asChild
+                    className="w-full sm:w-auto text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 bg-white/20 backdrop-blur-xl border-white/30 hover:bg-white/30 shadow-lg hover:shadow-xl transition-all duration-300 rounded-2xl"
                   >
-                    View Results
-                    <TrendingUp className="w-4 h-4 sm:w-5 sm:h-5" />
-                  </Link>
-                </Button>
+                    <Link
+                      to="/case-studies"
+                      className="flex items-center justify-center gap-2"
+                    >
+                      View Results
+                      <TrendingUp className="w-4 h-4 sm:w-5 sm:h-5" />
+                    </Link>
+                  </Button>
+                </motion.div>
 
-                <Button
-                  variant="ghost"
-                  size="lg"
-                  asChild
-                  className="w-full sm:w-auto text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 hover:bg-white/10 backdrop-blur-sm transition-all duration-300 transform hover:scale-105 active:scale-95 rounded-2xl border border-transparent hover:border-white/20"
+                <motion.div
+                  variants={buttonTransitionVariants}
+                  initial="initial"
+                  whileHover="hover"
+                  whileTap="tap"
                 >
-                  <a
-                    href="tel:+919879957167"
-                    className="flex items-center justify-center gap-2"
+                  <Button
+                    variant="ghost"
+                    size="lg"
+                    asChild
+                    className="w-full sm:w-auto text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 hover:bg-white/10 backdrop-blur-sm transition-all duration-300 rounded-2xl border border-transparent hover:border-white/20"
                   >
-                    <Phone className="w-4 h-4 sm:w-5 sm:h-5" />
-                    <span className="hidden sm:inline">Call Now: </span>
-                    <span className="sm:hidden">Call: </span>
-                    +91 98799 57167
-                  </a>
-                </Button>
-              </div>
+                    <a
+                      href="tel:+919879957167"
+                      className="flex items-center justify-center gap-2"
+                    >
+                      <Phone className="w-4 h-4 sm:w-5 sm:h-5" />
+                      <span className="hidden sm:inline">Call Now: </span>
+                      <span className="sm:hidden">Call: </span>
+                      +91 98799 57167
+                    </a>
+                  </Button>
+                </motion.div>
+              </motion.div>
 
               {/* Quick Results - Mobile-First Glassmorphism Cards */}
               <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 md:gap-6 px-2">
@@ -535,7 +575,7 @@ const Index = () => {
               className="text-lg px-8 py-4 text-white hover:bg-white/20"
             >
               <a
-                href="mailto:pratikvaishnav2013@gmail.com"
+                href="mailto:info@scalecore.xyz"
                 className="flex items-center gap-2"
               >
                 <Mail className="w-5 h-5" />

@@ -20,9 +20,9 @@ const Contact = () => {
       icon: Mail,
       title: "Email",
       description: "Best way to reach me for opportunities",
-      value: "pratikvaishnav2013@gmail.com",
+      value: "info@scalecore.xyz",
       action: "Send Email",
-      href: "mailto:pratikvaishnav2013@gmail.com",
+      href: "mailto:info@scalecore.xyz",
       primary: true,
     },
     {
@@ -250,7 +250,7 @@ const Contact = () => {
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-4">
               <Button size="lg" asChild className="text-lg px-8 py-4">
                 <a
-                  href="mailto:pratikvaishnav2013@gmail.com"
+                  href="mailto:info@scalecore.xyz"
                   className="flex items-center gap-2"
                 >
                   <Mail className="w-5 h-5" />

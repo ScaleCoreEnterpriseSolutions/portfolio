@@ -38,7 +38,7 @@ const GetStarted = () => {
         "Project timeline & estimates",
         "No obligation discussion",
       ],
-      href: "https://calendly.com/pratikvaishnav2013", // Replace with actual booking link
+      href: "https://calendly.com/scalecore-info", // Replace with actual booking link
       primary: true,
     },
     {
@@ -70,7 +70,7 @@ const GetStarted = () => {
         "Technical documentation",
         "Comprehensive quotes",
       ],
-      href: "mailto:pratikvaishnav2013@gmail.com?subject=Enterprise Solution Consultation&body=Hi Pratik,%0D%0A%0D%0AI'm interested in discussing an enterprise solution for our business.%0D%0A%0D%0AProject Details:%0D%0A- Company: %0D%0A- Industry: %0D%0A- Project Type: %0D%0A- Timeline: %0D%0A- Budget Range: %0D%0A%0D%0APlease let me know the best time to discuss this further.%0D%0A%0D%0AThank you!",
+      href: "mailto:info@scalecore.xyz?subject=Enterprise Solution Consultation&body=Hi,%0D%0A%0D%0AI'm interested in discussing an enterprise solution for our business.%0D%0A%0D%0AProject Details:%0D%0A- Company: %0D%0A- Industry: %0D%0A- Project Type: %0D%0A- Timeline: %0D%0A- Budget Range: %0D%0A%0D%0APlease let me know the best time to discuss this further.%0D%0A%0D%0AThank you!",
       primary: false,
     },
     {
@@ -406,7 +406,7 @@ const GetStarted = () => {
               </p>
               <Button size="lg" asChild>
                 <a
-                  href="mailto:pratikvaishnav2013@gmail.com?subject=Custom Quote Request"
+                  href="mailto:info@scalecore.xyz?subject=Custom Quote Request"
                   className="flex items-center gap-2"
                 >
                   <Mail className="w-5 h-5" />
@@ -523,10 +523,10 @@ const GetStarted = () => {
                       <div className="flex items-center gap-2">
                         <Mail className="w-4 h-4 text-primary-600" />
                         <a
-                          href="mailto:pratikvaishnav2013@gmail.com"
+                          href="mailto:info@scalecore.xyz"
                           className="text-primary-600 hover:underline"
                         >
-                          pratikvaishnav2013@gmail.com
+                          info@scalecore.xyz
                         </a>
                       </div>
                       <div className="flex items-center gap-2">
@@ -570,7 +570,7 @@ const GetStarted = () => {
                 className="text-lg px-8 py-4"
               >
                 <a
-                  href="https://calendly.com/pratikvaishnav2013"
+                  href="https://calendly.com/scalecore-info"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-2"

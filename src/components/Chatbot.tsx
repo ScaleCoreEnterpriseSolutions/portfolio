@@ -138,7 +138,7 @@ const Chatbot = () => {
     ) {
       return {
         id: Date.now().toString(),
-        text: "Ready to start your project? Schedule a free consultation: Call +91 9879957167, email pratikvaishnav2013@gmail.com, or book a meeting online. We respond within 24-48 hours with detailed proposals.",
+        text: "Ready to start your project? Schedule a free consultation: Call +91 9879957167, email info@scalecore.xyz, or book a meeting online. We respond within 24-48 hours with detailed proposals.",
         sender: "bot",
         timestamp: new Date(),
         actions: [
@@ -151,7 +151,7 @@ const Chatbot = () => {
             label: "Email Direct",
             action: () =>
               window.open(
-                "mailto:pratikvaishnav2013@gmail.com?subject=Enterprise Solution Consultation",
+                "mailto:info@scalecore.xyz?subject=Enterprise Solution Consultation",
               ),
             icon: <Mail className="w-4 h-4" />,
           },
